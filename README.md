@@ -1,130 +1,68 @@
-<h1 align="center">🌌 Gemini Chatbot</h1>  
+# Gemini AI Chatbot
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8+-blue?logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/Flask-2.3.3-black?logo=flask" alt="Flask">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Powered%20by-Google%20Gemini-orange?logo=google" alt="Google Gemini">
-</p>  
+A single-file AI chatbot that talks to **Google Gemini** straight from your browser. Paste your Gemini API key, press Enter, and get real AI answers — no backend, no build step, no dependencies.
 
-<p align="center">
-  🚀 A modern chatbot powered by <b>Google’s Gemini API</b> with a sleek <b>Flask web app</b> interface.  
-</p>  
+Built by [@thesajidalam](https://github.com/thesajidalam) · [github.com/thesajidalam](https://github.com/thesajidalam)
 
-<p align="center">
-  <img src="https://media.giphy.com/media/QBd2kLB5qDmysEXre9/giphy.gif" width="600" alt="Chatbot Demo">
-</p>  
+## Features
 
----
+- Real requests to `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`
+- Chat history kept for multi-turn conversations
+- Typing indicator, loading state and clear error messages
+- **Enter** to send
+- **New chat** button to clear the conversation
+- Your API key is saved in browser `localStorage` (never committed, never sent anywhere except Google)
+- **Remove key** / **Replace key** options to wipe local data
+- Dark, responsive, Telegram-style chat UI
+- Pure vanilla HTML + CSS + JavaScript, single file, zero dependencies (Font Awesome CDN only)
 
-## ✨ Features  
+## Quick start
 
-✅ **Google Gemini API Integration** – Seamless & powerful AI conversations  
-✅ **Flask Web App** – Lightweight backend with clean architecture  
-✅ **Beautiful UI** – Modern responsive design with CSS  
-✅ **.env Support** – Securely manage your API keys  
-✅ **Developer Friendly** – Modular code & easy customization  
+1. Open `index.html` in any modern browser (Chrome, Firefox, Edge, Safari).
+2. Paste your Gemini API key into the key bar and click **Save & start**.
+3. Type a message and press **Enter**.
 
----
+## Getting a Gemini API key from Google AI Studio
 
-## 📂 Project Structure  
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey) and sign in with your Google account.
+2. Click **Create API key** (choose your Google Cloud project, or create one on the spot).
+3. Copy the generated key — it starts with `AIza...`.
+4. Paste it into the app. That's it.
 
-```bash
-gemini-chatbot/
-│
-├── app.py               # Flask entry point
-├── gemini_handler.py    # Gemini API wrapper & logic
-├── requirements.txt     # Python dependencies
-├── templates/
-│   └── index.html       # Frontend UI
-├── static/
-│   └── style.css        # Styling for the chatbot
-└── .env (optional)      # Store your API key securely
-⚡ Quickstart
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/gemini-chatbot.git
-cd gemini-chatbot
-2️⃣ Setup Virtual Environment
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-4️⃣ Configure Environment Variables
-Create a .env file in the root folder:
+> The key is stored only in your browser's `localStorage`. It is **never written to any file in this repo** — use **Remove key** whenever you're done to wipe it locally.
 
-env
-Copy
-Edit
-GOOGLE_API_KEY=your_api_key_here
-🔑 Get your API key from Google AI Studio.
+## Security
 
-5️⃣ Run the App
-bash
-Copy
-Edit
-python app.py
-6️⃣ Open in Browser
-👉 http://localhost:5000
+- Messages go **directly** from your browser to Google's servers — no proxy, no intermediary.
+- Your API key lives only in `localStorage` on your own machine.
+- Nothing is committed, logged or uploaded anywhere except Google.
+- GitHub's secret scanning / review safety: this repo contains **no** real keys (`index.html` reads yours at runtime).
 
-🖥️ Usage Demo
-<p align="center"> <img src="https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif" width="650" alt="Chatbot Conversation"> </p>
-Type your message in the chatbot box.
+## Deployment
 
-Click Send.
+Since it's a single static file you can run it anywhere:
 
-Get instant Gemini-powered AI responses.
+- Double-click `index.html` to open it locally
+- Drop it on GitHub Pages / Netlify / Vercel static hosting
+- Serve it from any basic web server
 
-Customize the UI via style.css.
+## Project structure
 
-📌 Requirements
-Python 3.8+
+```
+chatbot/
+├── index.html   # The entire app (UI + logic, single file)
+├── README.md
+└── .gitignore
+```
 
-Flask 2.3.3
+## Cost & limits
 
-Requests 2.31.0
+Gemini API free tier applies per Google's current pricing. `gemini-1.5-flash` is the fast, low-cost model used here by default.
 
-google-generativeai 0.3.2
+## License
 
-python-dotenv 1.0.0
+MIT — free to use, modify and share.
 
-🌍 Deploy Online
-You can host Gemini Chatbot on:
+## Credits
 
-Render
-
-Heroku
-
-Vercel
-
-(Deployment guide coming soon 🚀)
-
-🤝 Contributing
-Pull requests, issues, and suggestions are welcome! 🎉
-
-Fork the repo
-
-Create your feature branch
-
-Submit a PR
-
-📜 License
-This project is licensed under the MIT License.
-
-💡 Credits
-Built with ❤️ using:
-
-Flask
-
-Google Gemini API
-
-<p align="center"> <img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" width="150" alt="Robot Hand"> </p> ```
+Built with ❤️ by **[@thesajidalam](https://github.com/thesajidalam)** on top of the **Google Gemini API**.
